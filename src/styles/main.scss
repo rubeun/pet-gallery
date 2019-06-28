@@ -1,0 +1,102 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/grid';
+@import 'libs/flexgrid';
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600');
+
+/*
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+*/
+
+// Breakpoints.
+	@include breakpoints((
+		default:   (1681px,   null     ),
+		xlarge:    (1281px,   1680px   ),
+		large:     (981px,    1280px   ),
+		medium:    (737px,    980px    ),
+		small:     (481px,    736px    ),
+		xsmall:    (361px,    480px    ),
+		xxsmall:   (null,     360px    )
+	));
+
+// Color.
+	@mixin color($p) {
+		@include color-typography($p);
+		@include color-button($p);
+		@include color-form($p);
+		@include color-list($p);
+		@include color-table($p);
+		@include color-highlights($p);
+		@include color-testimonials($p);
+	}
+
+// Base.
+	@import 'base/reset';
+
+
+// Main.
+	.container {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 10px;	
+	}
+
+	h1 {
+		font-size: 3em;
+		text-align: center;
+	}
+
+	// Pet styles
+	.pet-grid {
+		width: 100%;		
+		display: flex;		
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.pet-box {
+		padding: 10px 20px;
+	}
+
+	.pet-img {
+		object-fit: cover;
+		width:230px;
+		height:230px;	
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+	// Modal Styles
+	.modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width:100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.6);
+	}
+	
+	.modal-main {
+		position:fixed;
+		background: white;
+		width: 80%;
+		height: auto;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+	}
+	
+
+	// Util
+	.display-block {
+		display: block;
+	}
+	
+	.display-none {
+		display: none;
+	}
