@@ -11,7 +11,7 @@ class Pet extends Component {
 
   render() {
     const { petType, petId, petURL } = this.props;
-    const imageAlt = "Photo of " + petType + " " + petId;
+    const imageAlt = "Thumbnail of " + petType + " " + petId;
 
     return (
       <div className='pet-box' onClick={this.handleOpenModal}>
@@ -21,7 +21,7 @@ class Pet extends Component {
   }
 }
 
-// Pet needs pets from store. Pet is also passed in id as prop (of Pet to be displayed)
+// Pet is passed in the petType, petInfo and openModal function from App as props
 function mapStateToProps({}, {petType, petInfo, openModal}) {
 
   return {

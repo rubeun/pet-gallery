@@ -5,9 +5,8 @@ import Pet from './components/Pet';
 import Modal from './components/Modal';
 
 class App extends Component {
-
   state = {
-    petType: "cats",
+    petType: "cat",
     showModal: false,
     modalImgURL: null
   }
@@ -42,11 +41,11 @@ class App extends Component {
 
     // put all pets info into an array for easier mapping
     if (!loading) {
-      if (petType === "cats") {
+      if (petType === "cat") {
         Object.entries(cats).forEach(cat => {
           petsArr.push(cat);
         })
-      } else if (petType === "dogs") {
+      } else if (petType === "dog") {
         Object.entries(dogs).forEach(dog => {
           petsArr.push(dog);
         })
@@ -68,7 +67,7 @@ class App extends Component {
         </div>
 
         <Modal show={this.state.showModal} closeModal={this.closeModal}>
-          <img src={this.state.modalImgURL} />
+          <img src={this.state.modalImgURL} alt={`Fullsize ` + petType + ` image`} />
         </Modal>
 
       </div>
@@ -76,7 +75,7 @@ class App extends Component {
   }
 }
 
-//App only cares about petIds portion of store
+//App needs cats and dogs from store
 function mapStateToProps({cats, dogs}) {
   return {
     loading: cats === null || dogs === null,
@@ -85,5 +84,5 @@ function mapStateToProps({cats, dogs}) {
   }
 }
 
-// connect App to store via mapStateToProps which provides only catIds accessible by this.props
+// connect App to store via mapStateToProps
 export default connect(mapStateToProps)(App);
