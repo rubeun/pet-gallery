@@ -1,4 +1,4 @@
-export const RECEIVE_DOGS = 'RECEIVE_DOGS';
+import { RECEIVE_DOGS } from '../constants/ActionTypes';
 
 // ### ACTION CREATORS ###
 

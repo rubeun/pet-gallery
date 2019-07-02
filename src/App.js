@@ -27,6 +27,21 @@ class App extends Component {
     }));    
   }
 
+  chooseCats = () => {
+    this.setState((state) => ({
+      ...state,
+      petType: "cat",
+    }));    
+  }
+
+  chooseDogs = () => {
+    this.setState((state) => ({
+      ...state,
+      petType: "dog",
+    }));    
+  }
+
+
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
@@ -56,7 +71,13 @@ class App extends Component {
     return (
       <div className='container'>
         <h1 className='page-title'>Pet {petType} Gallery</h1>
-
+        <h3 className='pet-select'>choose gallery</h3>
+        <nav className='pet-nav'>
+          <ul>
+            <li onClick={this.chooseCats}>CATS</li>
+            <li onClick={this.chooseDogs}>DOGS</li>
+          </ul>
+        </nav>
         <div className='pet-grid'>
           {petsLoaded === true 
             ? petsArr.map((pet) => (

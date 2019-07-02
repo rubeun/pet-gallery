@@ -46,10 +46,40 @@
 		padding: 10px;	
 	}
 
-	h1 {
+	.page-title {
 		font-size: 3em;
 		text-align: center;
 		text-transform: capitalize;
+		padding-bottom: 20px;
+	}
+
+	.pet-select {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	// Nav
+	.pet-nav {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.pet-nav ul li {
+		float: left;
+		background-color: black;
+		color: white;
+		border-radius: 10px;
+		margin: 10px 20px;
+		padding: 20px 40px;
+		display: block;
+		cursor: pointer;
+		text-align: center;
+	}
+
+	.pet-nav ul li:hover {
+		background-color: #444;
 	}
 
 	// Pet styles
@@ -70,6 +100,10 @@
 		height:230px;	
 		border-radius: 10px;
 		cursor: pointer;
+	}
+
+	.pet-img:hover {
+		opacity: 0.8;
 	}
 
 	// Modal Styles
