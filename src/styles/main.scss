@@ -49,6 +49,7 @@
 	h1 {
 		font-size: 3em;
 		text-align: center;
+		text-transform: capitalize;
 	}
 
 	// Pet styles
@@ -79,18 +80,29 @@
 		width:100%;
 		height: 100%;
 		background: rgba(0, 0, 0, 0.6);
+		animation-name: modalFade;
+  	animation-duration: .3s;
 	}
 	
 	.modal-main {
 		position:fixed;
-		background: white;
-		width: 80%;
-		height: auto;
+		height: 90%;
+		width: 33%;
 		top:50%;
 		left:50%;
 		transform: translate(-50%,-50%);
 	}
-	
+
+	.modal-main img {
+		object-fit: cover;
+		width: 100%;
+		height: auto;
+	}
+
+	@keyframes modalFade {
+		from {transform: translateY(-50%);opacity: 0;}
+		to {transform: translateY(0);opacity: 1;}
+	}
 
 	// Util
 	.display-block {
@@ -99,4 +111,24 @@
 	
 	.display-none {
 		display: none;
+	}
+
+	// Mobile
+	@media screen and (max-width: 1200px) {
+		.modal-main {
+			width: 45%;
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		.modal-main {
+			width: 60%;
+		}
+	}
+
+	@media screen and (max-width: 420px) {
+		.modal-main {
+			height: 75%;
+			width: 90%;
+		}
 	}

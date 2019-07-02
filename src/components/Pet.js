@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Pet extends Component {
-  state = {
-    showModal:  false
-  }
 
-  showModal = () => {
-    this.setState({ showModal: true });
-  }
-
-  hideModal = () => {
-    this.setState({ showModal: false });
+  // handle the modal 
+  handleOpenModal = () => {
+    const { openModal, petURL } = this.props;
+    openModal(petURL);
   }
 
   render() {
@@ -19,7 +14,7 @@ class Pet extends Component {
     const imageAlt = "Photo of " + petType + " " + petId;
 
     return (
-      <div className='pet-box' onClick={this.showModal}>
+      <div className='pet-box' onClick={this.handleOpenModal}>
         <img className="pet-img" src={petURL} alt={imageAlt} />
       </div>
     )
@@ -27,12 +22,13 @@ class Pet extends Component {
 }
 
 // Pet needs pets from store. Pet is also passed in id as prop (of Pet to be displayed)
-function mapStateToProps({}, {petType, petInfo}) {
+function mapStateToProps({}, {petType, petInfo, openModal}) {
 
   return {
     petType,
     petId: parseInt(petInfo[0]) + 1,
-    petURL: petInfo[1].url
+    petURL: petInfo[1].url,
+    openModal
   }
 }
 
